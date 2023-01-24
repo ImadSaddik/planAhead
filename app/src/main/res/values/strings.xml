@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">PlanAhead</string>
+    <string name="elementName">Nom du module</string>
+    <string name="day">Monday</string>
+    <string name="weekNumber">Week n°</string>
+    <string name="duration">00:00</string>
+    <string name="type">Type</string>
+    <string name="fab_content_desc">Add entry</string>
+    <string name="fab_delete_content_desc">Delete entries</string>
+    <string name="save">Save</string>
+    <string name="setupTitle">Setup</string>
+    <string name="labelElement">Type an element</string>
+    <string name="labelDay">Choose a day</string>
+    <string name="labelType">Choose a type</string>
+    <string name="startWeekNumber">First week</string>
+    <string name="endWeekNumber">Last week</string>
+    <string name="minMaxValueWeek">min 1, max 14</string>
+    <string name="addingEntry">Adding an entry</string>
+    <string name="startTime">Specify the start time</string>
+    <string name="timeFormat">Time format 00:00</string>
+    <string name="durationFormat">Duration in hours (2 or 3 hours)</string>
+    <string name="labelDuration">Specify the duration</string>
+    <string name="sampleText">sample text</string>
+    <string name="delete_all">Delete all entries</string>
+    <string name="setup_description">In this page you need to specify your name and the time table. Hit the + icon in order to add entries, once finished click on the submit button</string>
+    <string name="your_name">Your name</string>
+    <string name="entries">Entries</string>
+    <string name="description">Description</string>
+    <string name="entries_description">Below you can see all the entries that you have added, if you want to make any modification tap on the card that you want to change then save your modifications. Tap on the floating button in order to add more entries, once you finish save your entries</string>
+    <string name="fabConfirm">Confirm entries</string>
+    <string name="made_by">Made by Imad Saddik and still under development</string>
+    <string name="greeting">Welcome back</string>
+    <string name="fill_field">Please fill these fields</string>
+    <string name="week">Specify a week</string>
+    <string name="submit">Submit</string>
+    <string name="this_is_what_you_have">This is what you have today</string>
+    <string name="bottom_nav_bar_label_2">Edit entries</string>
+    <string name="bottom_nav_bar_label_1">Get entries</string>
+    <string name="save_entry">Save entry</string>
+
+</resources>

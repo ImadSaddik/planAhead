@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/dayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/durationOfElement"
+            android:layout_alignBottom="@id/durationOfElement"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/oswald_regular"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/day"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/elementDeModule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/durationOfElement"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/oswald_regular"
+            android:text="@string/elementName"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/startEndWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/typeOfElement"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/typeOfElement"
+            android:fontFamily="@font/oswald_regular"
+            android:text="@string/weekNumber"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/durationOfElement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/oswald_regular"
+            android:text="@string/duration"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/typeOfElement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/elementDeModule"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/oswald_regular"
+            android:text="@string/type"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
