@@ -10,7 +10,7 @@
         android:id="@+id/constrainLayFetchingData"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <TextView
             android:id="@+id/welcomeTxtView"
@@ -98,7 +98,7 @@
         android:id="@+id/relLayParentSetup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutName"

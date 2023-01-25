@@ -15,6 +15,8 @@
         <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
         <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
+        <item name="snackbarButtonStyle">@style/Widget.App.SnackbarButton</item>
     </style>
 
     <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
@@ -47,5 +49,18 @@
     <style name="ThemeOverlay.App.Button" parent="">
         <item name="colorContainer">?attr/colorPrimaryVariant</item>
         <item name="colorOnContainer">@color/white</item>
+    </style>
+
+    <style name="Widget.App.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Snackbar</item>
+    </style>
+
+    <style name="Widget.App.SnackbarButton" parent="Widget.Material3.Button.TextButton.Snackbar">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Snackbar" parent="">
+        <item name="colorContainer">@color/primaryLightColor</item>
+        <item name="colorOnContainer">@color/black</item>
     </style>
 </resources>

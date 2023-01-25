@@ -10,12 +10,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 public class EditEntriesFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -47,7 +51,23 @@ public class EditEntriesFragment extends Fragment {
             startActivityForResult(intent, ADD_ENTRY_REQUEST);
         });
 
-        deleteFAB.setOnClickListener(v -> entryViewModel.deleteAllEntries());
+        deleteFAB.setOnClickListener(v -> {
+            LiveData<List<Entry>> deletedEntries = entryViewModel.getAllEntries();
+            List<Entry> list = deletedEntries.getValue();
+            entryViewModel.deleteAllEntries();
+
+            Snackbar.make(deleteFAB, R.string.snack_bar_fab, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.undo_swipe, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (list != null) {
+                                for (Entry e : list)
+                                    entryViewModel.insert(e);
+                            }
+                        }
+                    }).show();
+
+        });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -58,8 +78,10 @@ public class EditEntriesFragment extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                entryViewModel.delete(adapter.getEntryAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getActivity(), "Entry deleted", Toast.LENGTH_SHORT).show();
+                Entry swipedEntry = adapter.getEntryAt(viewHolder.getAdapterPosition());
+                entryViewModel.delete(swipedEntry);
+                Snackbar.make(view, R.string.snack_bar_swipe, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.undo_swipe, v -> entryViewModel.insert(swipedEntry)).show();
             }
         }).attachToRecyclerView(recyclerView);
 

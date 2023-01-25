@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -108,8 +109,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                entryViewModel.delete(adapter.getEntryAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(MainActivity.this, "Entry deleted", Toast.LENGTH_SHORT).show();
+                Entry swipedEntry = adapter.getEntryAt(viewHolder.getAdapterPosition());
+                entryViewModel.delete(swipedEntry);
+                Snackbar.make(viewHolder.itemView, R.string.snack_bar_swipe, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.undo_swipe, v -> entryViewModel.insert(swipedEntry)).show();
             }
         }).attachToRecyclerView(recyclerView);
 

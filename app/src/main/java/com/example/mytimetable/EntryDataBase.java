@@ -46,8 +46,6 @@ public abstract class EntryDataBase extends RoomDatabase {
         protected Void doInBackground(Void... voids) {
             entryDao.insert(new Entry(12, 1, 2, "08:30",
                     Utils.VM, Utils.TYPE_ONE, Utils.MONDAY, Utils.dayToInt(Utils.MONDAY)));
-            entryDao.insert(new Entry(8, 1, 2, "14:30",
-                    Utils.COMPT, Utils.TYPE_ONE, Utils.TUESDAY, Utils.dayToInt(Utils.TUESDAY)));
             entryDao.insert(new Entry(12, 10, 3, "08:30",
                     Utils.TT, Utils.TYPE_TWO, Utils.SATURDAY, Utils.dayToInt(Utils.SATURDAY)));
             entryDao.insert(new Entry(11, 10, 3, "13:30",

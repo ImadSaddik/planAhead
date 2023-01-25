@@ -37,5 +37,8 @@
     <string name="bottom_nav_bar_label_2">Edit entries</string>
     <string name="bottom_nav_bar_label_1">Get entries</string>
     <string name="save_entry">Save entry</string>
+    <string name="snack_bar_swipe">Entry deleted</string>
+    <string name="snack_bar_fab">Entries deleted</string>
+    <string name="undo_swipe">Undo</string>
 
 </resources>
