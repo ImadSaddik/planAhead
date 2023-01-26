@@ -138,7 +138,6 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:contentDescription="@string/fab_content_desc"
-            android:tint="@color/primaryTextColor"
             app:srcCompat="@drawable/ic_add" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -150,7 +149,6 @@
             android:layout_marginEnd="95dp"
             android:layout_marginBottom="20dp"
             android:contentDescription="@string/fabConfirm"
-            android:tint="@color/primaryTextColor"
             app:srcCompat="@drawable/ic_check" />
 
         <TextView
