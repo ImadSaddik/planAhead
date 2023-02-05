@@ -57,13 +57,10 @@ public class EditEntriesFragment extends Fragment {
             entryViewModel.deleteAllEntries();
 
             Snackbar.make(deleteFAB, R.string.snack_bar_fab, Snackbar.LENGTH_LONG)
-                    .setAction(R.string.undo_swipe, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (list != null) {
-                                for (Entry e : list)
-                                    entryViewModel.insert(e);
-                            }
+                    .setAction(R.string.undo_swipe, v1 -> {
+                        if (list != null) {
+                            for (Entry e : list)
+                                entryViewModel.insert(e);
                         }
                     }).show();
 

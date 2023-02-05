@@ -1,6 +1,9 @@
 package com.example.mytimetable;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +12,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.color.MaterialColors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +92,13 @@ public class GetEntriesFragment extends Fragment {
             String str = "You have nothing today";
             title.setText(str);
         } else {
-            title.setText(R.string.this_is_what_you_have);
+            String str = "This is what you have in (W" + week + ")";
+            SpannableString ss = new SpannableString(str);
+            int color = MaterialColors.getColor(getContext(), com.google.android.material.R.attr.colorPrimary, Color.BLACK);
+            ForegroundColorSpan fcs = new ForegroundColorSpan(color);
+
+            ss.setSpan(fcs, (str.length() - 6), str.length(), SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+            title.setText(ss);
         }
     }
 

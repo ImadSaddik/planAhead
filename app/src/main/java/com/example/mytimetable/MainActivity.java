@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,6 +26,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private EntryViewModel entryViewModel;
     private TextInputEditText textInputEditTextName;
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     // Constraint layout views
     TextInputLayout textInputLayoutDay, textInputLayoutWeek;
     AutoCompleteTextView autoCompleteDropDownMenuDays, autoCompleteDropDownMenuWeeks;
-    Button submitBtn;
+    Button submitBtn; // This button has an onClick method
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         confirmFab.setOnClickListener(v -> {
+            LiveData<List<Entry>> deletedEntries = entryViewModel.getAllEntries();
+            boolean emptyList = deletedEntries.getValue().size() == 0;
             boolean nameBool = textInputEditTextName.getText().toString().equals("");
 
             if (nameBool) {
@@ -82,11 +87,19 @@ public class MainActivity extends AppCompatActivity {
                 textInputLayoutName.setErrorEnabled(true);
             } else {
                 textInputLayoutName.setErrorEnabled(false);
+            }
+
+            if (emptyList) {
+                Toast.makeText(this, "Add at least one entry!", Toast.LENGTH_SHORT).show();
+            }
+
+            if (!emptyList && !nameBool) {
                 SharedPreferences prefs1 = getSharedPreferences(PREFS_KEY, MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs1.edit();
                 editor.putBoolean(BOOL_PREFS_KEY, false);
                 editor.putString(NAME_KEY, textInputEditTextName.getText().toString());
                 editor.apply();
+
                 constraintLayoutFetchData.setVisibility(View.VISIBLE);
                 relativeLayoutSetup.setVisibility(View.GONE);
 
@@ -103,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
                 return false;
             }
 
