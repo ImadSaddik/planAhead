@@ -59,7 +59,7 @@ public class AddEditEntryActivity extends AppCompatActivity {
             setTitle("Edit entry");
             editTextDuration.setText(String.valueOf(intent.getIntExtra(EXTRA_DURATION, 2)));
             editTextFirstWeek.setText(String.valueOf(intent.getIntExtra(EXTRA_START_WEEK, 1)));
-            editTextLastWeek.setText(String.valueOf(intent.getIntExtra(EXTRA_LAST_WEEK, 14)));
+            editTextLastWeek.setText(String.valueOf(intent.getIntExtra(EXTRA_LAST_WEEK, 30)));
             editTextStartTime.setText(intent.getStringExtra(EXTRA_START_TIME));
             dropDownMenuDay.setText(intent.getStringExtra(EXTRA_DAY));
             editTextElement.setText(intent.getStringExtra(EXTRA_ELEMENT));
@@ -92,7 +92,7 @@ public class AddEditEntryActivity extends AppCompatActivity {
         firstWeekBool = editTextFirstWeek.getText().toString().equals("") ||
                 Integer.parseInt(editTextFirstWeek.getText().toString()) < 1;
         lastWeekBool = editTextLastWeek.getText().toString().equals("") ||
-                Integer.parseInt(editTextLastWeek.getText().toString()) > 14;
+                Integer.parseInt(editTextLastWeek.getText().toString()) > 30;
         timeBool = editTextStartTime.getText().toString().equals("") ||
                 !isValidDate(editTextStartTime.getText().toString());
         durationBool = editTextDuration.getText().toString().equals("") ||

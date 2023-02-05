@@ -14,7 +14,7 @@
     <string name="labelType">Choose a type</string>
     <string name="startWeekNumber">First week</string>
     <string name="endWeekNumber">Last week</string>
-    <string name="minMaxValueWeek">min 1, max 14</string>
+    <string name="minMaxValueWeek">min 1, max 30</string>
     <string name="addingEntry">Adding an entry</string>
     <string name="startTime">Specify the start time</string>
     <string name="timeFormat">Time format 00:00</string>

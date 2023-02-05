@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         String type = data.getStringExtra(AddEditEntryActivity.EXTRA_TYPE);
         String startTime = data.getStringExtra(AddEditEntryActivity.EXTRA_START_TIME);
         int startWeek = data.getIntExtra(AddEditEntryActivity.EXTRA_START_WEEK, 1);
-        int endWeek = data.getIntExtra(AddEditEntryActivity.EXTRA_LAST_WEEK, 14);
+        int endWeek = data.getIntExtra(AddEditEntryActivity.EXTRA_LAST_WEEK, 30);
         int duration = data.getIntExtra(AddEditEntryActivity.EXTRA_DURATION, 2);
 
         return new Entry(endWeek, startWeek, duration, startTime, element, type, day,
