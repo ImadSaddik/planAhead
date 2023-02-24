@@ -53,7 +53,10 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         holder.dayOfTheWeek.setText(currentEntry.getDay());
         holder.elementName.setText(currentEntry.getNameOfElement());
         holder.Type.setText(currentEntry.getType());
-        holder.duration.setText(addHours(currentEntry.getStartingFrom(), currentEntry.getDuration()));
+        holder.duration.setText(addHours(currentEntry.getStartingFrom(),
+                currentEntry.getDuration(),
+                currentEntry.getDay())
+        );
 
         String weekDuration = "[" + currentEntry.getStartWeek() + " - " + currentEntry.getEndWeek() + "]";
         holder.weekStartEnd.setText(weekDuration);
@@ -63,14 +66,18 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         return getItem(position);
     }
 
-    private String addHours(String startTime, int duration) {
+    private String addHours(String startTime, int duration, String day) {
         StringBuilder sb = new StringBuilder();
         sb.append(startTime).append("  -  ");
 
         int hour = Integer.parseInt(startTime.substring(0, 2)) + duration;
         String str = hour > 9 ? String.valueOf(hour) : "0" + hour;
 
-        sb.append(str).append(":30");
+        if (!day.equals(Utils.FRIDAY)) {
+            sb.append(str).append(":30");
+        } else {
+            sb.append(str).append(":00");
+        }
         return sb.toString();
     }
 
