@@ -1,2 +1,3 @@
 # planAhead
-This is an app that facilitate using school timetables. You add what you have in each day in the form of entries and after that you just specify the day and week and you get everything you have in that day without checking the pdf version of the timetable provided by your school administration.
+
+planAhead is a smart, easy to use app that helps you keep track of your school schedule. With planAhead, there is no need to keep checking the timetable provided by the administration that contains a lot of information that doesn't concern you, all you have to do is to add what concerns you to planAhead. This app simplifies your life by providing a user-friendly interface that displays only the information you need, you can specify the day and week and get immediate result. No more scrolling through a lengthy PDF timetable, planAhead makes it easy for you to quickly see what classes you have and when.
